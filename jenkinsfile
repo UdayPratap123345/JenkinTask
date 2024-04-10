@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -23,6 +19,5 @@ pipeline {
                 sh 'dotnet test src/aspnetcore1.sln --logger "trx;LogFileName=./aspnetcore1.trx"'
             }
         }
-
     }
 }
