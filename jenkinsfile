@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    environment {
+        
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'dotnet build src/aspnetcore1/aspnetcore1.csproj --configuration Release'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'dotnet test src/aspnetcore1.sln --logger "trx;LogFileName=./aspnetcore1.trx"'
+            }
+        }
+
+    }
+}
