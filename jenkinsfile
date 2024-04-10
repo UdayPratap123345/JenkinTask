@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'dotnet build src/aspnetcore1/aspnetcore1.csproj --configuration Release'
+                sh 'dotnet build src\aspnetcore1\aspnetcore1\aspnetcore1.csproj --configuration Release'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'dotnet test src/aspnetcore1.sln --logger "trx;LogFileName=./aspnetcore1.trx"'
+                sh 'dotnet test src\aspnetcore1\aspnetcore1\aspnetcore1.sln --logger "trx;LogFileName=./aspnetcore1.trx"'
             }
         }
     }
